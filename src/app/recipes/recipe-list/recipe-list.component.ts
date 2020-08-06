@@ -18,6 +18,11 @@ export class RecipeListComponent implements OnInit {
       'This Bukharian Jewish Meaty Rice Dish',
       'https://i.pinimg.com/236x/48/e4/97/48e4974196835f107952866fd0180618.jpg'
     ),
+    new Recipe(
+      'A Test Recipe 3',
+      'Skillet Chicken and Asparagus Cooked In Garlic Infused Olive',
+      'https://avatars.mds.yandex.net/get-zen-logos/200214/pub_5cf4fa9192695500af757f14_5cf4fbff6d847900afdd51d5/xxh'
+    ),
   ];
 
   constructor() {}
