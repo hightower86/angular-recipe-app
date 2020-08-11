@@ -13,7 +13,7 @@ export class ShoppingEditComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  onIngridientAdded(nameEl: HTMLInputElement, amountEl: HTMLInputElement) {
+  onIngredientAdded(nameEl: HTMLInputElement, amountEl: HTMLInputElement) {
     this.newIngredient.emit({ title: nameEl.value, amount: +amountEl.value });
     console.log(this.newIngredient);
   }
