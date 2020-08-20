@@ -1,4 +1,5 @@
-import { Recipe } from '../recipes/recipe.model';
+import { Recipe } from './../recipes/recipe.model';
+import { EventEmitter } from '@angular/core';
 
 export class RecipeService {
   private recipes: Recipe[] = [
@@ -18,6 +19,8 @@ export class RecipeService {
       'https://avatars.mds.yandex.net/get-zen-logos/200214/pub_5cf4fa9192695500af757f14_5cf4fbff6d847900afdd51d5/xxh'
     ),
   ];
+
+  selectedItem = new EventEmitter<Recipe>();
 
   getRecipes() {
     return this.recipes.slice();
