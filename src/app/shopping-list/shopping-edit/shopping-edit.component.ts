@@ -1,3 +1,4 @@
+import { Ingredient } from './../../shared/ingredient.model';
 import { ShoppingListService } from './../../services/shoppingList.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -15,5 +16,8 @@ export class ShoppingEditComponent implements OnInit {
     // this.newIngredient.emit({ title: nameEl.value, amount: +amountEl.value });
     // console.log(this.newIngredient);
     this.slService.addIngredient(nameEl.value, +amountEl.value);
+  }
+  onDelete(ing: Ingredient) {
+    this.slService.deleteIngredient();
   }
 }

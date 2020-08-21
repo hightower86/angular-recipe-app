@@ -15,6 +15,15 @@ export class ShoppingListService {
   addIngredient(title: string, amount: number) {
     console.log('title', title, 'amount', amount);
     this.ingredients.push(new Ingredient(title, amount));
-    this.inredientsChanged.emit(this.ingredients);
+    this.inredientsChanged.emit(this.ingredients.slice());
+  }
+  deleteIngredient(ingredient: Ingredient) {
+    const idx = this.ingredients.indexOf(ingredient);
+    const ingsBeforeIdx = this.ingredients.slice(0, idx);
+    const ingsAfterIdx = this.ingredients.slice(idx);
+    this.ingredients = [...ingsAfterIdx, ...ingsAfterIdx];
+  }
+  clearIngredients() {
+    this.ingredients = [];
   }
 }

@@ -6,17 +6,16 @@ import { Ingredient } from '../shared/ingredient.model';
 @Component({
   selector: 'app-shopping-list',
   templateUrl: 'shopping-list.component.html',
-  providers: [ShoppingListService],
+  providers: [],
 })
 export class ShoppingList implements OnInit {
   ingredients: Ingredient[];
-  constructor(private shoppinglistService: ShoppingListService) {
-    this.shoppinglistService.inredientsChanged.subscribe((ingredients) => {
-      this.ingredients = ingredients;
-    });
-  }
+  constructor(private shoppinglistService: ShoppingListService) {}
 
   ngOnInit() {
     this.ingredients = this.shoppinglistService.getIngredients();
+    this.shoppinglistService.inredientsChanged.subscribe((ingredients) => {
+      this.ingredients = ingredients;
+    });
   }
 }
