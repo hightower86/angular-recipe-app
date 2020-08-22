@@ -1,3 +1,4 @@
+import { RecipeService } from './../../services/recipe.service';
 import { ShoppingListService } from './../../services/shoppingList.service';
 import { Component, OnInit, Input } from '@angular/core';
 
@@ -10,15 +11,18 @@ import { Recipe } from './../recipe.model';
 export class RecipeDetailComponent implements OnInit {
   @Input() recipeItemChosen: Recipe;
   dropdownOpened: boolean = false;
-  constructor(private slService: ShoppingListService) {}
+  constructor(private recipeService: RecipeService) {}
 
   ngOnInit(): void {
     this.dropdownOpened = false;
   }
 
   addIngrsToSL() {
-    this.recipeItemChosen.ingredients.forEach((ingredient) => {
-      this.slService.addIngredient(ingredient.title, ingredient.amount);
-    });
+    // this.recipeItemChosen.ingredients.forEach((ingredient) => {
+    //   this.slService.addIngredient(ingredient.title, ingredient.amount);
+    // });
+    this.recipeService.addInredientsToShoppingList(
+      this.recipeItemChosen.ingredients
+    );
   }
 }
